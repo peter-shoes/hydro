@@ -4,12 +4,13 @@
 void setup() {
   Serial.begin(9600);
   AFMS.begin();
+  run_mot(pump1);
 }
 
 void loop() {
-  check_pump(pump1);
-  check_pump(pump2);
-  check_pump(pump3);
+  // check_pump(pump1);
+  // check_pump(pump2);
+  // check_pump(pump3);
   delay(60000);
 }
 
