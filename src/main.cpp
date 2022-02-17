@@ -8,22 +8,18 @@ void setup() {
 }
 
 void loop() {
-  // check_pump(pump1);
-  // check_pump(pump2);
-  // check_pump(pump3);
-  // delay(60000);
-  Serial.print("\nSec: ");
-  Serial.print(dt.secondstime(), DEC);
-  Serial.print("\nHrs: ");
-  Serial.print(dt.hour(), DEC);
-  dt = dt + TimeSpan(0,0,0,1);
+  check_pump(pump1);
+  check_pump(pump2);
+  check_pump(pump3);
+  dt_chk = dt_chk + TimeSpan(0,0,0,1);
   delay(1000);
 }
 
 void check_pump(Pump pmp) {
-  // if current_time-pmp.last_dose_time >= pmp.hrs_btwn_dose OR pmp.last_dose_time == -1
+  if ((pmp.last_dose_time == dt_init) || ((dt_chk - pmp.last_dose_time).hours() >= pmp.hrs_btwn_dose)){
     run_mot(pmp);
-    // pmp.last_dose_time = current_time
+    pmp.last_dose_time = dt_chk;
+  }
 }
 
 void run_mot(Pump pmp) {
@@ -31,5 +27,5 @@ void run_mot(Pump pmp) {
   pmp.mot->run(FORWARD);
   delay(pmp.runtime * 1000);
   pmp.mot->fullOff();
-    
+  dt_chk = dt_chk + TimeSpan(0,0,0,pmp.runtime);
 }
