@@ -16,6 +16,7 @@ void loop() {
   Serial.print(dt.secondstime(), DEC);
   Serial.print("\nHrs: ");
   Serial.print(dt.hour(), DEC);
+  dt = dt + TimeSpan(0,0,0,1);
   delay(1000);
 }
 
