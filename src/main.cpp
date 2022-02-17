@@ -16,9 +16,9 @@ void loop() {
 }
 
 void check_pump(Pump pmp) {
-  if ((pmp.last_dose_time == dt_init) || ((dt_chk - pmp.last_dose_time).hours() >= pmp.hrs_btwn_dose)){
-    run_mot(pmp);
+  if ((pmp.last_dose_time == dt_init) || ((dt_chk - pmp.last_dose_time).seconds()/60 >= pmp.hrs_btwn_dose)){
     pmp.last_dose_time = dt_chk;
+    run_mot(pmp);
   }
 }
 
