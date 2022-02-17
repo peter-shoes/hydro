@@ -19,9 +19,13 @@ typedef struct Pump {
     DateTime last_dose_time;
 } Pump;
 
-Pump pump1 = {AFMS.getMotor(1), 150, 64, 24, dt_init};
-Pump pump2 = {AFMS.getMotor(2), 150, 92, 34, dt_init};
-Pump pump3 = {AFMS.getMotor(3), 150, 228, 84, dt_init};
+// Pump pump1 = {AFMS.getMotor(1), 150, 64, 24, dt_init};
+// Pump pump2 = {AFMS.getMotor(2), 150, 92, 34, dt_init};
+// Pump pump3 = {AFMS.getMotor(3), 150, 228, 84, dt_init};
+
+Pump pump1 = {AFMS.getMotor(1), 150, 1, 24, dt_init};
+Pump pump2 = {AFMS.getMotor(2), 150, 1, 34, dt_init};
+Pump pump3 = {AFMS.getMotor(3), 150, 1, 84, dt_init};
 
 
 
