@@ -2,6 +2,7 @@
 #include <Adafruit_MotorShield.h>
 #include <Wire.h>
 #include <SPI.h>
+#include "RTClib.h"
 
 // DEFINE AFMS
 Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
@@ -20,6 +21,7 @@ Pump pump2 = {AFMS.getMotor(2), 150, 10, 4, -1};
 Pump pump3 = {AFMS.getMotor(3), 150, 10, 2, -1};
 
 // TIME DEFS
+DateTime dt (0, 0, 0, 0, 0, 0);
 
 // FUNC DEFS
 void check_pump(Pump pmp);
