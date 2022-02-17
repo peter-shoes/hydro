@@ -16,7 +16,7 @@ void loop() {
 }
 
 void check_pump(Pump pmp) {
-  if ((pmp.last_dose_time == dt_init) || ((dt_chk - pmp.last_dose_time).seconds() >= pmp.hrs_btwn_dose*3600)){
+  if ((dt_chk == dt_init) || ((dt_chk - pmp.last_dose_time).seconds() >= pmp.hrs_btwn_dose*3600)){
     run_mot(pmp);
     Serial.println("RUNNING");
   }
